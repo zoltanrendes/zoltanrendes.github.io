@@ -179,8 +179,8 @@ ul {
 .hero h1 {
   max-width: 11ch;
   margin-bottom: 18px;
-  font-size: clamp(3rem, 7vw, 5.7rem);
-  line-height: 0.92;
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  line-height: 0.98;
 }
 
 .lede {
