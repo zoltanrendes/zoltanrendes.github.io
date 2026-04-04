@@ -179,8 +179,8 @@ ul {
 .hero h1 {
   max-width: 11ch;
   margin-bottom: 18px;
-  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
-  line-height: 0.98;
+  font-size: clamp(3rem, 7vw, 5.7rem);
+  line-height: 0.92;
 }
 
 .lede {
@@ -431,6 +431,7 @@ ul {
 
 .footer {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 28px;
 }
@@ -443,6 +444,7 @@ ul {
   display: grid;
   gap: 12px;
   min-width: 260px;
+  max-width: 100%;
 }
 
 .contact-links a {
@@ -454,6 +456,8 @@ ul {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.58);
   font-weight: 700;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .reveal {
@@ -468,13 +472,17 @@ ul {
 }
 
 @media (max-width: 980px) {
+
   .hero,
   .intro-grid,
   .strength-grid,
   .stack-layout,
-  .footer,
   .timeline-item {
     grid-template-columns: 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
   }
 
   .hero h1 {
@@ -524,6 +532,11 @@ ul {
 
   .meta-list {
     flex-direction: column;
+  }
+
+  .contact-links {
+    min-width: 0;
+    width: 100%;
   }
 
 }
