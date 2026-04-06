@@ -22,8 +22,9 @@
       <a class="brand" href="#home">ZR</a>
       <nav class="nav">
         <a href="#experience">Experience</a>
-        <a href="#strengths">Strengths</a>
+        <a href="#projects">Projects</a>
         <a href="#stack">Stack</a>
+        <a href="#strengths">Strengths</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -203,6 +204,109 @@
         </div>
       </section>
 
+      <section id="projects" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected work beyond day-to-day delivery.</h2>
+        </div>
+
+        <article class="project-feature">
+          <div class="project-summary">
+            <p class="project-kicker">Project spotlight</p>
+            <h3>ESP32 Weather Stack</h3>
+            <p class="project-lede">
+              A personal end-to-end weather-monitoring project where I designed and built a small
+              ESP32-based stack, then documented the work as a structured technical report rather
+              than leaving it as an isolated prototype.
+            </p>
+
+            <ul class="project-tags" aria-label="Project technologies and themes">
+              <li>ESP32</li>
+              <li>IoT</li>
+              <li>Embedded integration</li>
+              <li>Data reporting</li>
+              <li>System design</li>
+            </ul>
+
+            <div class="project-actions">
+              <a
+                class="button button-primary"
+                href="https://github.com/zoltanrendes/esp32-weather-stack"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View repository
+              </a>
+            </div>
+          </div>
+
+          <div class="project-detail-grid">
+            <article class="project-card">
+              <p class="project-card-label">What I built</p>
+              <p>
+                A compact weather-monitoring stack that brings together ESP32-based data
+                collection, the surrounding software needed to work with the readings, and a
+                report that explains the system clearly from setup through results.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <p class="project-card-label">Technologies and problem solved</p>
+              <p>
+                The project sits across embedded and software concerns: ESP32, sensor integration,
+                IoT-style data capture, repository-based documentation, and the tooling needed to
+                turn hardware output into something inspectable and reportable.
+              </p>
+              <p>
+                It solves the practical problem of collecting environmental data in a lightweight,
+                self-contained way, while also turning raw readings into something that can be
+                understood, reviewed, and communicated beyond the device itself.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <p class="project-card-label">What I learned and what was hard</p>
+              <p>
+                The work reinforced how different embedded projects feel from pure web delivery:
+                hardware constraints surface quickly, observability matters more, and good
+                reporting is part of the engineering work rather than an afterthought.
+              </p>
+              <p>
+                The harder part was not just getting readings from a device, but making the whole
+                stack coherent: connecting hardware behaviour, data flow, and explanation into a
+                system that is reliable enough to demonstrate and detailed enough to present.
+              </p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section id="stack" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Stack</p>
+          <h2>Core tools and technologies.</h2>
+        </div>
+
+        <div class="stack-layout">
+          <div class="stack-group">
+            <h3>Core frontend</h3>
+            <p>React, TypeScript, JavaScript, Redux, Redux-Saga, React Hooks, Ember, React Native</p>
+          </div>
+          <div class="stack-group">
+            <h3>Additional backend experience</h3>
+            <p>Python, Django, Flask</p>
+          </div>
+          <div class="stack-group">
+            <h3>Quality</h3>
+            <p>Jest, React Testing Library, Cypress, Pytest</p>
+          </div>
+          <div class="stack-group">
+            <h3>Platform</h3>
+            <p>PostgreSQL, SQLite, Git, GitHub Actions, CI/CD pipelines, GoCD</p>
+          </div>
+        </div>
+      </section>
+
       <section id="strengths" class="section reveal">
         <div class="section-heading">
           <p class="eyebrow">Strengths</p>
@@ -238,32 +342,6 @@
               performance has a visible impact on product quality.
             </p>
           </article>
-        </div>
-      </section>
-
-      <section id="stack" class="section reveal">
-        <div class="section-heading">
-          <p class="eyebrow">Stack</p>
-          <h2>Core tools and technologies.</h2>
-        </div>
-
-        <div class="stack-layout">
-          <div class="stack-group">
-            <h3>Core frontend</h3>
-            <p>React, TypeScript, JavaScript, Redux, Redux-Saga, React Hooks, Ember, React Native</p>
-          </div>
-          <div class="stack-group">
-            <h3>Additional backend experience</h3>
-            <p>Python, Django, Flask</p>
-          </div>
-          <div class="stack-group">
-            <h3>Quality</h3>
-            <p>Jest, React Testing Library, Cypress, Pytest</p>
-          </div>
-          <div class="stack-group">
-            <h3>Platform</h3>
-            <p>PostgreSQL, SQLite, Git, GitHub Actions, CI/CD pipelines, GoCD</p>
-          </div>
         </div>
       </section>
     </main>
