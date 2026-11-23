@@ -1,0 +1,48 @@
+name: Build and deploy Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Publish this build to GitHub Pages
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Verify Yarn version
+        run: test "$(corepack yarn --version)" = '4.9.2'
+      - name: Install dependencies
+        run: corepack yarn install --immutable
+      - name: Build Pages artifact
+        run: corepack yarn build:pages
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/pages
+
+  deploy:
+    if: inputs.deploy
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/configure-pages@v5
+      - uses: actions/deploy-pages@v4
+        id: deployment

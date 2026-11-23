@@ -1,0 +1,12 @@
+{
+  "name": "flora-studies-demo",
+  "private": true,
+  "packageManager": "yarn@4.9.2",
+  "scripts": {
+    "build:pages": "yarn workspace portfolio build --mode pages && yarn workspace flora-studies build --mode pages && node scripts/stage-pages.mjs",
+    "preview:pages": "yarn workspace portfolio exec vite preview --config ../../scripts/pages-preview.config.mjs"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
