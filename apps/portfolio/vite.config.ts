@@ -11,11 +11,8 @@ export default defineConfig(({ mode }) => {
     build: { outDir: pages ? 'dist-pages' : 'dist' },
     server: localServer,
     preview: localServer,
+    define: { __FLORA_PAGE_URL__: JSON.stringify(floraUrl) },
     plugins: [
-      {
-        name: 'flora-page-link',
-        transformIndexHtml: (html) => html.replaceAll('%FLORA_PAGE_URL%', floraUrl),
-      },
       federation({
         name: 'portfolio',
         remotes: {

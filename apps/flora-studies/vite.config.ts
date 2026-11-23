@@ -18,11 +18,8 @@ export default defineConfig(({ mode }) => {
     build: { outDir: pages ? 'dist-pages' : 'dist' },
     server: { ...localServer, origin },
     preview: localServer,
+    define: { __PORTFOLIO_PAGE_URL__: JSON.stringify(portfolioUrl) },
     plugins: [
-      {
-        name: 'portfolio-page-link',
-        transformIndexHtml: (html) => html.replaceAll('%PORTFOLIO_PAGE_URL%', portfolioUrl),
-      },
       federation({
         name: 'floraStudies',
         filename: 'remoteEntry.js',

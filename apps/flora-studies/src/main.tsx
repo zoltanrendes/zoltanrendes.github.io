@@ -1,4 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import Gallery from './Gallery';
+import FloraStudiesApp from './FloraStudiesApp';
 
-createRoot(document.getElementById('flora-gallery-root')!).render(<Gallery />);
+declare const __PORTFOLIO_PAGE_URL__: string;
+
+createRoot(document.getElementById('root')!).render(<FloraStudiesApp portfolioUrl={__PORTFOLIO_PAGE_URL__} />);

@@ -1,18 +1,25 @@
-const revealElements = document.querySelectorAll(".reveal");
+import { useEffect, type RefObject } from 'react';
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+export function useScrollReveal(root: RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    const elements = root.current?.querySelectorAll('.reveal');
+    if (!elements?.length) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      elements.forEach(element => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      for (const { isIntersecting, target } of entries) {
+        if (isIntersecting) {
+          target.classList.add('is-visible');
+          observer.unobserve(target);
+        }
       }
-    });
-  },
-  {
-    threshold: 0.14,
-    rootMargin: "0px 0px -40px 0px",
-  }
-);
+    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
 
-revealElements.forEach((element) => observer.observe(element));
+    elements.forEach(element => observer.observe(element));
+    return () => observer.disconnect();
+  }, [root]);
+}

@@ -39,3 +39,16 @@ The build stages the portfolio at the root of `dist/pages` and Flora Studies und
 Open http://127.0.0.1:4173/ and http://127.0.0.1:4173/flora-studies/. Verify navigation between the pages, the images, and the lightbox in both galleries. In DevTools, disable the cache and reload the portfolio. Check that `/flora-studies/remoteEntry.js`, the gallery chunks, and its stylesheet return successfully from the preview origin.
 
 Run **Build and deploy Pages** from the GitHub Actions tab. Leave **Publish this build to GitHub Pages** unchecked for an artifact-only run. For a live release, confirm the repository uses GitHub Actions as its Pages source and check the publish option. Keep a known-good release ref or the prior publishing source available for rollback.
+
+## Tests
+
+From the repository root, install the workspace dependencies and Chromium, then run both suites.
+
+```sh
+corepack yarn install --immutable
+corepack yarn playwright install chromium
+corepack yarn test:unit
+corepack yarn test:e2e
+```
+
+The unit command runs the React Testing Library unit and integration tests in jsdom. Playwright builds and starts the local federation servers on ports 5173 and 5174 and the staged Pages preview on port 4173. Stop existing servers on those ports before starting the suite.

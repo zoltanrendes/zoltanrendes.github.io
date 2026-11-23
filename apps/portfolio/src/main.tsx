@@ -1,11 +1,6 @@
-import { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import './scroll-reveal';
+import PortfolioApp from './PortfolioApp';
 
-const Gallery = lazy(() => import('floraStudies/Gallery'));
+declare const __FLORA_PAGE_URL__: string;
 
-createRoot(document.getElementById('flora-gallery-root')!).render(
-  <Suspense fallback={<p role="status">Loading Flora Studies…</p>}>
-    <Gallery />
-  </Suspense>,
-);
+createRoot(document.getElementById('root')!).render(<PortfolioApp floraUrl={__FLORA_PAGE_URL__} />);
